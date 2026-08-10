@@ -1,0 +1,191 @@
+*{box-sizing:border-box}
+:root{
+  --bg:#f4f1e8;
+  --ink:#10231b;
+  --muted:#68766f;
+  --card:#fffdf8;
+  --line:rgba(16,35,27,.11);
+  --accent:#d36d3f;
+  --green:#245f48;
+  --green-soft:#e7ede9;
+  --shadow:0 12px 35px rgba(16,35,27,.055);
+}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;
+  background:
+    radial-gradient(circle at 100% 0,rgba(211,109,63,.14),transparent 30%),
+    linear-gradient(180deg,#f8f5ec 0%,#efede4 100%);
+  color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+}
+button,input{font:inherit}
+button{border:0;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid rgba(211,109,63,.35);outline-offset:2px}
+.page-shell{width:min(1080px,calc(100% - 28px));margin:auto;padding:24px 0 30px}
+.hero{
+  display:grid;grid-template-columns:76px minmax(0,1fr) 76px;
+  align-items:center;gap:18px;padding:16px 0 28px;
+}
+.brand-mark{
+  width:76px;height:76px;border-radius:20px;
+  display:grid;place-items:center;
+  background:var(--ink);overflow:hidden;
+  box-shadow:0 8px 22px rgba(16,35,27,.14);
+  align-self:center;
+}
+.brand-mark img{
+  width:100%;height:100%;display:block;
+  object-fit:contain
+}
+.hero-copy{text-align:center;min-width:0}
+.eyebrow,.section-kicker{
+  margin:0;color:var(--accent);font-weight:800;
+  letter-spacing:.16em;font-size:.7rem
+}
+h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(2.45rem,7vw,5rem);
+  line-height:.92;margin:5px 0 0;letter-spacing:-.045em
+}
+.date-text{margin:10px 0 0;color:var(--muted);font-size:.98rem}
+.date-badge{
+  width:76px;height:76px;flex:none;border-radius:22px;
+  background:var(--ink);color:white;display:grid;place-content:center;
+  text-align:center;box-shadow:0 16px 40px rgba(16,35,27,.18);
+  justify-self:end;
+}
+.date-badge span{font-family:"Playfair Display",serif;font-size:2.35rem;line-height:.8}
+.date-badge small{margin-top:9px;letter-spacing:.18em;font-weight:800;font-size:.63rem}
+
+.date-panel{
+  display:flex;justify-content:space-between;align-items:center;gap:18px;
+  margin:8px 0 14px;padding:14px 15px;
+  background:rgba(255,253,248,.78);border:1px solid var(--line);
+  border-radius:20px;box-shadow:0 7px 24px rgba(16,35,27,.035)
+}
+.date-heading{display:grid;gap:4px}
+.date-heading strong{font-size:.95rem}
+.date-controls{display:flex;align-items:center;gap:8px}
+.date-input-wrap{display:block}
+input[type=date]{
+  min-width:154px;padding:11px 12px;border:1px solid var(--line);
+  border-radius:12px;background:var(--card);color:var(--ink)
+}
+.icon-btn,.today-btn{
+  height:44px;border-radius:12px;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);font-weight:800
+}
+.icon-btn{width:44px;font-size:1.1rem}
+.today-btn{padding:0 15px;background:var(--green);color:#fff;border-color:var(--green)}
+.icon-btn:hover,input[type=date]:hover{border-color:rgba(36,95,72,.35)}
+.today-btn:hover{filter:brightness(.96)}
+
+.status-bar{
+  display:flex;align-items:center;gap:13px;margin:0 0 30px;
+  padding:14px 17px;background:var(--green-soft);
+  border:1px solid rgba(36,95,72,.14);border-radius:17px
+}
+.status-icon{
+  width:38px;height:38px;border-radius:12px;background:#fff;
+  display:grid;place-items:center;font-size:1.05rem
+}
+.status-bar strong{display:block;font-size:.95rem;margin-top:2px}
+.status-label{color:var(--green);font-size:.65rem;font-weight:800;letter-spacing:.15em}
+
+.menu-heading{
+  display:flex;align-items:end;justify-content:space-between;gap:16px;
+  margin-bottom:13px
+}
+.menu-heading h2{
+  font-family:"Playfair Display",serif;font-size:2rem;margin:4px 0 0;
+  letter-spacing:-.025em
+}
+.meal-count{
+  color:var(--muted);font-size:.78rem;font-weight:700;
+  background:rgba(255,255,255,.55);border:1px solid var(--line);
+  padding:7px 10px;border-radius:999px
+}
+.menu-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.meal-card{
+  grid-column:span 4;min-height:245px;
+  background:rgba(255,253,248,.92);border:1px solid var(--line);
+  border-radius:22px;padding:21px;position:relative;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease
+}
+.meal-card:nth-child(4),.meal-card:nth-child(5){grid-column:span 6}
+.meal-card:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(16,35,27,.09)}
+.meal-card.active{
+  background:rgba(255,253,248,.98);
+  color:var(--ink);
+  border:3px solid var(--green);
+  box-shadow:0 0 0 5px rgba(36,95,72,.10),0 18px 42px rgba(16,35,27,.10);
+  transform:translateY(-2px);
+}
+.meal-card.active::after{
+  content:"SEKARANG";position:absolute;right:18px;bottom:17px;
+  padding:6px 9px;border-radius:999px;background:var(--green);color:#fff;
+  font-size:.58rem;font-weight:800;letter-spacing:.12em
+}
+.meal-icon{
+  width:42px;height:42px;border-radius:13px;background:#f1ede2;
+  display:grid;place-items:center;font-size:1.3rem
+}
+.meal-card.active .meal-icon{background:#e4eee9}
+.meal-card.active .meal-time{color:#b8c6c0}
+.meal-card h3{
+  font-family:"Playfair Display",serif;font-size:1.42rem;
+  margin:20px 0 13px;letter-spacing:-.02em
+}
+.meal-card ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.meal-card li{display:flex;gap:9px;line-height:1.35;font-size:.94rem}
+.meal-card li::before{
+  content:"";width:6px;height:6px;margin-top:.45em;border-radius:50%;
+  background:var(--accent);flex:none
+}
+.meal-card.active li::before{background:var(--green)}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding-top:26px}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+@media(max-width:760px){
+  .page-shell{width:min(100% - 18px,1080px);padding-top:12px}
+  .hero{grid-template-columns:58px minmax(0,1fr) 58px;gap:10px;padding:12px 2px 22px}
+  .brand-mark{width:58px;height:58px;border-radius:15px}
+  h1{font-size:clamp(2.1rem,10.5vw,3.4rem)}
+  .date-text{font-size:.88rem}
+  .date-badge{width:58px;height:58px;border-radius:17px}
+  .date-badge span{font-size:1.85rem}
+  .date-badge small{font-size:.55rem}
+  .date-panel{display:block;padding:13px;margin-bottom:11px}
+  .date-heading{margin-bottom:10px}
+  .date-controls{display:grid;grid-template-columns:44px 1fr 44px;gap:7px}
+  .date-input-wrap{grid-column:1 / -1;grid-row:1}
+  input[type=date]{width:100%;min-width:0;height:44px}
+  .icon-btn:first-of-type{grid-column:1;grid-row:2}
+  .today-btn{grid-column:2;grid-row:2;width:100%}
+  .icon-btn:last-of-type{grid-column:3;grid-row:2}
+  .status-bar{margin-bottom:23px}
+  .menu-heading{margin-bottom:11px}
+  .menu-heading h2{font-size:1.75rem}
+  .meal-count{font-size:.7rem}
+  .menu-grid{display:block}
+  .meal-card,.meal-card:nth-child(n){
+    min-height:auto;margin-bottom:10px;padding:18px
+  }
+  .meal-card h3{margin-top:17px;margin-bottom:12px}
+  .meal-card li{font-size:.9rem}
+}
+@media(max-width:390px){
+  .hero{grid-template-columns:46px minmax(0,1fr) 46px;gap:7px;padding-top:5px}
+  .brand-mark{width:46px;height:46px;border-radius:13px}
+  .date-badge{width:46px;height:46px;border-radius:14px}
+  .date-badge span{font-size:1.55rem}
+  .date-badge small{font-size:.48rem;margin-top:6px}
+  h1{font-size:clamp(1.9rem,10vw,2.7rem)}
+}
+
+@media(max-width:760px){
+  .meal-card.active{border-width:2px;box-shadow:0 0 0 4px rgba(36,95,72,.10),0 14px 32px rgba(16,35,27,.08)}
+}

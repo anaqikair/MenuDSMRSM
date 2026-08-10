@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10231b">
+  <meta name="description" content="Paparan menu harian Dewan Selera.">
+  <title>Menu Dewan Selera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="brand-mark" aria-label="Logo MARA MRSM"><img src="logo.png" alt="MARA MRSM logo"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">DEWAN SELERA</p>
+        <h1>Menu Hari Ini</h1>
+        <p id="fullDate" class="date-text"></p>
+      </div>
+      <div class="date-badge" aria-label="Hari dalam bulan">
+        <span id="dayNumber">--</span>
+        <small>HB</small>
+      </div>
+    </header>
+
+    <main>
+      <section class="date-panel" aria-label="Pilih tarikh">
+        <div class="date-heading">
+          <span class="section-kicker">LIHAT MENU</span>
+          <strong>Pilih tarikh</strong>
+        </div>
+        <div class="date-controls">
+          <button id="prevBtn" class="icon-btn" aria-label="Hari sebelumnya">←</button>
+          <label class="date-input-wrap">
+            <span class="sr-only">Tarikh</span>
+            <input id="datePicker" type="date">
+          </label>
+          <button id="todayBtn" class="today-btn">Hari Ini</button>
+          <button id="nextBtn" class="icon-btn" aria-label="Hari seterusnya">→</button>
+        </div>
+      </section>
+
+      <section class="status-bar" aria-live="polite">
+        <div class="status-icon" aria-hidden="true">🍽️</div>
+        <div>
+          <span class="status-label" id="statusLabel">SETERUSNYA</span>
+          <strong id="nextMealText">Memuatkan...</strong>
+        </div>
+      </section>
+
+      <section>
+        <div class="menu-heading">
+          <div>
+            <span class="section-kicker">MENU HARIAN</span>
+            <h2>Hidangan</h2>
+          </div>
+          <span class="meal-count">5 hidangan</span>
+        </div>
+        <section id="menuGrid" class="menu-grid" aria-label="Senarai menu"></section>
+      </section>
+    </main>
+
+    <footer>
+      <p>Dicipta oleh MRSM Bentong.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
