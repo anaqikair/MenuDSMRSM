@@ -43,14 +43,6 @@
         </div>
       </section>
 
-      <section class="status-bar" aria-live="polite">
-        <div class="status-icon" aria-hidden="true">🍽️</div>
-        <div>
-          <span class="status-label" id="statusLabel">SETERUSNYA</span>
-          <strong id="nextMealText">Memuatkan...</strong>
-        </div>
-      </section>
-
       <section>
         <div class="menu-heading">
           <div>
@@ -60,6 +52,59 @@
           <span class="meal-count">5 hidangan</span>
         </div>
         <section id="menuGrid" class="menu-grid" aria-label="Senarai menu"></section>
+      </section>
+
+      <section class="feedback-panel" aria-labelledby="feedbackTitle">
+        <div class="feedback-heading">
+          <span class="section-kicker">SUARA ANDA</span>
+          <h2 id="feedbackTitle">Penilaian & Cadangan Menu</h2>
+          <p class="feedback-desc">Kongsi maklum balas anda untuk membantu meningkatkan kualiti makanan Dewan Selera.</p>
+        </div>
+
+        <form id="feedbackForm" class="feedback-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reporterInput">Nama & Kelas <span class="required-star">*</span></label>
+              <input type="text" id="reporterInput" placeholder="cth. Anaqi 4IQ" required autocomplete="name">
+            </div>
+
+            <div class="form-group">
+              <label for="mealSelect">Hidangan Yang Dinilai <span class="required-star">*</span></label>
+              <select id="mealSelect" required>
+                <!-- Dihasilkan secara dinamik (lalai kepada menu semasa) -->
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Penilaian Menu <span class="required-star">*</span></label>
+            <div class="star-rating-wrap">
+              <div class="star-rating" id="starRating" role="radiogroup" aria-label="Penilaian 1 hingga 5 bintang">
+                <button type="button" class="star-btn" data-value="1" aria-label="1 bintang">★</button>
+                <button type="button" class="star-btn" data-value="2" aria-label="2 bintang">★</button>
+                <button type="button" class="star-btn" data-value="3" aria-label="3 bintang">★</button>
+                <button type="button" class="star-btn" data-value="4" aria-label="4 bintang">★</button>
+                <button type="button" class="star-btn" data-value="5" aria-label="5 bintang">★</button>
+              </div>
+              <span class="rating-label" id="ratingLabel">Sila pilih rating</span>
+            </div>
+            <input type="hidden" id="ratingValue" name="rating" value="0">
+          </div>
+
+          <div class="form-group">
+            <label for="suggestionInput">Cadangan / Komen</label>
+            <textarea id="suggestionInput" rows="3" placeholder="Tulis cadangan atau komen anda mengenai menu ini..."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="submitFeedbackBtn" class="submit-btn">
+              <span class="btn-text">Hantar Penilaian</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div id="feedbackStatus" class="feedback-status" aria-live="polite"></div>
+        </form>
       </section>
     </main>
 
