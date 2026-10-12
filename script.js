@@ -73,7 +73,7 @@ function render(date){
         <div class="meal-meta">
           <span class="meal-icon">${meal.icon}</span>
           <div>
-            <span class="meal-time">${meal.time}</span>
+            
             <h3>${meal.name}</h3>
           </div>
         </div>
